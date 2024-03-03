@@ -6,7 +6,7 @@ Download the project as a zip file and extract in your local machine.
 
 Open the folder in the zip file in VS Code
 
-### Starting the server
+## Starting the server
 
 To start the server run the following commands
 
@@ -19,7 +19,9 @@ To start the server run the following commands
 ### npm start
 
 
-### Starting the client
+
+
+## Starting the client
 
 To start the client run the following commands in a different terminal
 
