@@ -41,7 +41,7 @@ const Image = () => {
           {image && <img src={image} alt="Uploaded" style={{ maxWidth: '300px' }} />}
           <h2> Extracted text </h2>
           {extractedText && <p>{extractedText}</p>}
-          {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+          {/* {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} */}
           
         </div>
       );
