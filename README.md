@@ -19,7 +19,9 @@ To start the server run the following commands
 ### npm start
 
 
+## Starting the database
 
+To store data in the database start a MySQL server in your local machine. Update credentials to connect to the database from ./api/db.js
 
 ## Starting the client
 
@@ -30,3 +32,16 @@ To start the client run the following commands in a different terminal
 ### npm i
 
 ### npm start
+
+
+## Features included in this project
+
+1. Upload image from frontend to backend
+2. Store the image and the extracted text via an OCR tool in a MySQL database
+3. View the extracted text in the frontend after retrieving it from the backend
+
+## Features yet to be included
+
+1. Extracting bold text
+2. Implement login/register/logout
+3. Styling
