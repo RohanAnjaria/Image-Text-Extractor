@@ -68,7 +68,7 @@ app.post('/image', upload.single('image'), async (req, res) => {
 
 app.get('/data', (req, res) => {
     // Retrieve the image and text data from the database
-    const query = 'SELECT image, text FROM images LIMIT 1';
+    const query = 'SELECT image, text FROM images ORDER BY id DESC LIMIT 1';
     db.query(query, (error, results) => {
         if (error) {
           console.error('Error retrieving data from database:', error);
@@ -82,19 +82,21 @@ app.get('/data', (req, res) => {
         // Extract image and text from the database results
         const imageData = results[0].image;
         const extractedText = results[0].text;
+
+        const deleteQuery = 'DELETE FROM images';
+        db.query(deleteQuery, (deleteError, deleteResults) => {
+            if (deleteError) {
+              console.error('Error deleting data from database:', deleteError);
+              // Log the error but do not send a response since the data has already been sent
+            } else {
+              console.log('All rows deleted from the images table');
+            }
+          });
     
         // Send the image and text data in the response
         return res.json({ image: imageData, text: extractedText }).status(200);
 
-        // const deleteQuery = 'DELETE FROM images';
-        // db.query(deleteQuery, (deleteError, deleteResults) => {
-        //     if (deleteError) {
-        //       console.error('Error deleting data from database:', deleteError);
-        //       // Log the error but do not send a response since the data has already been sent
-        //     } else {
-        //       console.log('All rows deleted from the images table');
-        //     }
-        //   });
+        
     });
 }
 );
